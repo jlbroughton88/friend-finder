@@ -10,6 +10,7 @@
 // Interacts with friends.js
 
 var friendsData = require("../data/friends");
+console.log(friendsData)
 
 module.exports = function (app) {
 
@@ -32,4 +33,4 @@ module.exports = function (app) {
         console.log(parsedScore)
     }
 
-}      
+}
