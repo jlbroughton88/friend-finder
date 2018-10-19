@@ -11,16 +11,16 @@
 var path = require("path");
 
 module.exports = function (app) {
-    server.listen(PORT, function () {
-        console.log("Server listening on: http://localhost:" + PORT);
-    })
+    // server.listen(PORT, function () {
+    //     console.log("Server listening on: http://localhost:" + PORT);
+    // })
 
     app.get("/", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     });
 
-    app.get("/servey", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/servey.html"))
+    app.get("/survey", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/survey.html"))
     })
 }
 

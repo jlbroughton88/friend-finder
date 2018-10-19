@@ -19,7 +19,7 @@
                 <h2>About You</h2>
             </div>
             <div class="col-lg-2 pt-5 p-1">
-                <a href="home.html"><button class="btn btn-primary">Go back to the homepage!</button></a>
+                <a href="/"><button class="btn btn-primary">Go back to the homepage!</button></a>
             </div>
         </div>
     </div>
@@ -265,10 +265,10 @@
                 <div class="container"></div>
                 <div class="row">
                     <div class="col-lg-9">
-                        <a href="home.html"> <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                        <a href="home"> <button type="submit" id="submit" class="btn btn-primary">Submit</button></a>
                     </div>
                     <div>
-                        <a href="home.html"><button class="btn btn-primary">Go back to the homepage!</button></a>
+                        <a href="/"><button class="btn btn-primary">Go back to the homepage!</button></a>
                     </div>
                 </div>
             </div>
@@ -280,23 +280,23 @@
             $("#submit").on("click", function (event) {
                 event.preventDefault();
                 var newFriend = {
-                    routeName: $("#surveyResults"),
-                    name: $("#nameInput").val().trim(),
-                    photoURL: $("#photoInput").val().trim(),
-                    q1: $("#q1").val().trim(),
-                    q2: $("#q2").val().trim(),
-                    q3: $("#q3").val().trim(),
-                    q4: $("#q4").val().trim(),
-                    q5: $("#q5").val().trim(),
-                    q6: $("#q6").val().trim(),
-                    q7: $("#q7").val().trim(),
-                    q8: $("#q8").val().trim(),
-                    q9: $("#q9").val().trim(),
-                    q10: $("#q10").val().trim(),
+                    //routeName: $("#surveyResults"),
+                    "name": $("#nameInput").val().trim(),
+                    "photoURL": $("#photoInput").val().trim(),
+                    "scores":[
+                    $("#q1").val(),
+                     $("#q2").val(),
+                     $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                   $("#q8").val(),
+                    $("#q9").val(),
+                     $("#q10").val()]
                 };
-                console.log(q1)
-                var currentURL = window.location.origin
-                $.post(currentURL + "api/friends", newFriend)
+                //console.log(q1)
+                $.post("/api/survey/", newFriend)
                     .then(function (data) {
                         console.log(data);
                     });

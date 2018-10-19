@@ -9,11 +9,12 @@
 // Gives back JSON
 // Interacts with friends.js
 
-var friendsData = require("../data/friendsData");
+var friendsData = require("../data/friends");
 
 module.exports = function (app) {
 
-    app.get("/api/friends", function (req, res) {
+    app.post("/api/friends", function (req, res) {
+        console.log("test")
         res.json(friendsData);
     })
 
@@ -22,9 +23,13 @@ module.exports = function (app) {
         res.json(true)
     })
 
-}
+    app.get("/api/friends", function (req, res) {
+        return res.json(friendsData);   
+      });  
+    
+    for(var i = 0; i < friendsData.length; i++) {
+        var parsedScore = parseInt(friendsData[i].scores);
+        console.log(parsedScore)
+    }
 
-
-
-
-
+}      
